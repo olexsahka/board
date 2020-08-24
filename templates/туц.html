@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{%block head%}
+    {%endblock%}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>{%block title%}{%endblock%}</title>
+</head>
+<body>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<form method="post">
+    <table>
+        <tr>
+            <td>НАЗВАНИЕ ОБЪЯВЛЕНИЯ</td>
+            <td><input type="text" name="name" value={{post.name}}></td>
+        </tr>
+        <tr>
+            <td>КАТЕГОРИЯ</td>
+           <td>
+               <select size="1"  name="category" value={{post.category}}>
+                   <option disabled>Выберите категорию</option>
+                   <optgroup label="Мебель " >
+            <option value="мягкая мебель">мягкая мебель</option>
+            <option value="столы/стулья">столы/стулья</option>
+            <option value="полки">полки</option>
+            <option value="шкафы">шкафы</option>
+            <option value="прочая Мебель">прочее</option>
+                   </optgroup>
+                   <optgroup label="Техника " >
+            <option value="бытовая техника">бытовая техника</option>
+            <option value="компьютеры">компьютеры</option>
+            <option value="телефоны">телефоны</option>
+            <option value="аудио-видео">аудио-видео</option>
+            <option value="прочая техника">прочее</option>
+                   </optgroup>
+                   <optgroup label="Личные вещи" >
+            <option value="одежда">одежда</option>
+            <option value="обувь">обувь</option>
+            <option value="игрушки">игрушки</option>
+            <option value="книги">книги</option>
+            <option value="прочие Личные вещи">прочее</option>
+                   </optgroup>
+            <option value="Продукты">Продукты</option>
+
+            <option value="Канцелярия ">Канцелярия </option>
+            <option value="Прочее ">Прочее</option>
+               </select>
+           </td>
+        </tr>
+        <tr>
+            <td>ОПИСАНИЕ</td>
+            <td><input type="text" name="description" value={{post.description}}></td>
+        </tr>
+        <tr>
+            <td>ЦЕНА</td>
+            <td><input type="text" name="cost" value={{post.cost}}></td>
+        </tr>
+        <tr>
+            <td> ОБЩАГА </td>
+           <td>
+               <select size="1"  name="hostel" value={{post.hostel}}>
+            <option disabled>Выберите общежитие</option> <option value="Дальневосточное">Дальневосточное</option>
+            <option selected value="Рыбацкое">Рыбацкое</option>
+            <option value="Васильостровское">Васильостровское</option>
+            <option value="Лесное">Лесное</option>
+            </select>
+           </td>
+        </tr>
+        <tr>
+            <td> URL НА РЕАЛЬНУЮ СТОИМОСТЬ </td>
+            <td><input type="text" name="urlon" value={{post.urlon}}></td>
+        </tr>
+
+        <tr>
+            <td><a href="{{url_for('actualpost')}}"> </a></td>
+            <td><input type="submit" value="edit"></td>
+        </tr>
+
+    </table>
+</form>
+</body>
+</html>

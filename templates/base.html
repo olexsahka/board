@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{%block head%}
+    {%endblock%}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>{%block title%}{%endblock%}</title>
+</head>
+<body>
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm" style="color=orange">
+  <h5 class="my-0 mr-md-auto font-weight-normal">Bonchlife</h5>
+
+  <nav class="my-2 my-md-0 mr-md-3">
+
+    <a class="p-2 text-dark" href="{{url_for('hello_world')}}">Главная</a>
+    <a class="p-2 text-dark" href="/user{{current_user.id}}/lic">Личный кабинет</a>
+    <a class="p-2 text-dark" href="{{url_for('helper')}}">Поддержка</a>
+      <a class="p-2 text-dark" href="{{url_for('reg_post')}}">Создать новое объявление</a>
+    {%if current_user.is_authenticated==True %}
+
+      <a class="p-2 text-dark" >Пользователь:{{current_user.name}}</a>
+      {%endif%}
+  </nav>
+    <style> {
+    .btn:hover: {
+  background-color: blue;
+  color: white;}
+  .btn{
+  background-color: white;
+  color: black;
+  border: 1px solid blue;
+ font-size: 14px;
+ font-family: Arial;
+
+ border-radius: 0px;
+ padding: 5px 15px;
+ text-transform: capitalize;
+ transition: all 0.5s ease 0s;
+    }
+</style>
+    {%if current_user.is_authenticated==True %}
+  <a class="btn btn-outline-primary" href="{{url_for('logout')}}">Выйти</a>
+    {%endif%}
+    {%if current_user.is_authenticated==False %}
+
+    <a class="btn btn-outline-primary" href="{{url_for('loginging')}}">Войти</a>
+    {%endif%}
+</div>
+            {%block body%}{%endblock%}
+</body>
+</html>

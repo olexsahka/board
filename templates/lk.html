@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+    {%block title%}
+личный кабинет
+{%endblock%}
+
+{%block body%}
+<style>
+.container{
+ background: #fff;
+ padding-bottom: 0px;
+ border-radius: 15px;
+ text-align: center;
+}
+.container .heading2{
+ display: block;
+ font-size: 35px;
+ font-weight: 500;
+ padding: 0px 0;
+ border-bottom: 1px solid #ffa500;
+ margin-bottom: 30px;
+}
+.bdtn{
+ font-size: 14px;
+ background: #4169e1;
+ border-radius: 30px;
+ padding: 15px 15px;
+ border: none;
+ text-transform: capitalize;
+}
+</style>
+
+
+<div class="container">
+     <span class="heading2"> Личный кабинет</span>
+
+      <div class="row">
+          <div class="col">
+              <h1  style="color:orange">Личные данные</h1>
+<div class="bl">
+              <h4  class="h4" style="padding:20px"> Имя: {{current_user.name}}</h4>
+</div><div class="bl">
+              <h4 class="h4"  style="padding:20px">Почта: {{current_user.mail}}</h4>
+              </div><div class="bl">
+              <h4 class="h4"  style="padding:20px">Ссылка на Вконтакте: <a href="{{current_user.id_vk}}">{{current_user.name}}</a></h4>
+              </div><div class="bl">
+
+              </div><div class="bl"  ><h4 style="padding:20px">Общежитие: {{current_user.hostel}}</h4>
+              </div><div class="bl"><a href="/user{{current_user.id}}/lic/editdata" class="btn btn-outline-primary">изменить личные данные</a>
+</div>
+          </div>
+        <div class="col">
+
+
+           <h1 class="text " style="color:orange ">Объявления</h1>
+           <h1 style="padding:10px"> <a href="/user{{current_user.id}}/lic/actualpost"  class="btn btn-outline-primary" about="ваши активные объявления">Активные объявления</a> </h1>
+            <h1 style="padding:10px"><a  href="/user{{current_user.id}}/lic/notactualpost" class="btn btn-outline-primary">Завершенные объявления</a></h1>
+               <!-- <a href="{{url_for('toppost')}}">Избранные объявления</a> -->
+		</div>
+        </div>
+        <div class="col align-self-center">
+        </div>
+      </div>
+</div>
+{%endblock%}

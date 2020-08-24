@@ -1,0 +1,445 @@
+{%extends 'base.html'%}
+    {%block title%}
+edit post
+{%endblock%}
+{%block body%}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<style>
+    .field__wrapper {
+  width: 100%;
+  position: relative;
+  margin: 15px 0;
+  text-align: center;
+}
+
+
+.field__file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.field__file-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.field__file-fake {
+  height: 60px;
+  width: calc(100% - 130px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 15px;
+  border: 1px solid #c7c7c7;
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+}
+
+.field__file-button {
+  width: 130px;
+  height: 60px;
+  background: #ffa500;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}
+/* Form Style */
+.form-horizontal{
+ background: #fff;
+ padding-bottom: 40px;
+ border-radius: 15px;
+ text-align: center;
+}
+.form-horizontal .heading2{
+ display: block;
+ font-size: 35px;
+ font-weight: 500;
+ padding: 0px 0;
+ border-bottom: 1px solid #ffa500;
+ margin-bottom: 30px;
+}
+.form-horizontal .form-group{
+ padding: 0 40px;
+ margin: 0 0 25px 0;
+ position: relative;
+  font-size:15px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.form-horizontal .form-control{
+ background: #f0f0f0;
+ border: none;
+ border-radius: 20px;
+ box-shadow: none;
+ padding: 0 20px 0 45px;
+ height: 40px;
+ transition: all 0.3s ease 0s;
+ font-size: 15px;
+font-family: Arial;
+font-weight: 700;
+color: #444;
+text-align-last: center ;
+
+
+}
+.form-horizontal .form-control:focus{
+ background: #e0e0e0;
+ box-shadow: none;
+ outline: 0 none;
+}
+.form-horizontal .form-group i{
+ position: absolute;
+ top: 12px;
+ left: 60px;
+ font-size: 20px;
+ color: #c8c8c8;
+ transition : all 0.5s ease 0s;
+}
+
+
+.form-horizontal .form-control:focus + i{
+ color: #00b4ef;
+}
+.form-horizontal .fa-question-circle{
+ display: inline-block;
+ position: absolute;
+ top: 12px;
+ right: 60px;
+ font-size: 20px;
+ color: #808080;
+ transition: all 0.5s ease 0s;
+}
+.form-horizontal .fa-question-circle:hover{
+ color: #000;
+}
+.form-horizontal .main-checkbox{
+ float: left;
+ width: 20px;
+ height: 20px;
+ background: #11a3fc;
+ border-radius: 50%;
+ position: relative;
+ margin: 5px 0 0 5px;
+ border: 1px solid #11a3fc;
+}
+.form-horizontal .main-checkbox label{
+ width: 20px;
+ height: 20px;
+ position: absolute;
+ top: 0;
+ left: 0;
+ cursor: pointer;
+}
+.form-horizontal .main-checkbox label:after{
+ content: "";
+ width: 10px;
+ height: 5px;
+ position: absolute;
+ top: 5px;
+ left: 4px;
+ border: 3px solid #fff;
+ border-top: none;
+ border-right: none;
+ background: transparent;
+ opacity: 0;
+ -webkit-transform: rotate(-45deg);
+ transform: rotate(-45deg);
+}
+.form-horizontal .main-checkbox input[name=checkbox]{
+ visibility: hidden;
+}
+.form-horizontal .main-checkbox input[name=checkbox]:checked + label:after{
+ opacity: 1;
+}
+.form-horizontal .text{
+ float: left;
+ margin-left: 7px;
+ line-height: 20px;
+ padding-top: 5px;
+ text-transform: capitalize;
+}
+.form-horizontal .btn{
+ font-size: 14px;
+ color: #fff;
+ background: #ffa500;
+ border-radius: 30px;
+ padding: 10px 25px;
+ border: none;
+ text-transform: capitalize;
+ transition: all 0.5s ease 0s;
+}
+@media only screen and (max-width: 479px){
+ .form-horizontal .form-group{
+ padding: 0 25px;
+ font-size:20px;
+ }
+ .form-horizontal .form-group i{
+ left: 45px;
+ }
+ .form-horizontal .btn{
+ padding: 10px 20px;
+ }
+
+}
+
+
+.select-css {
+display: block;
+font-size: 15px;
+font-family: Arial;
+font-weight: 700;
+color: #444;
+text-align-last: center ;
+
+line-height: 1.3;
+padding: .6em 1.4em .5em .8em; width: 100%;
+max-width: 100%;
+box-sizing: border-box;
+margin: 0;
+border: None;
+ box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+border-radius: .5em;
+ -moz-appearance: none;
+ -webkit-appearance: none;
+ appearance: none;
+ background-color: #fff;
+background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+background-repeat: no-repeat, repeat;
+background-position: right .7em top 50%, 0 0;
+background-size: .65em auto, 100%;
+}
+ .select-css::-ms-expand { display: none; }
+ .select-css:hover { border-color: #888; }
+ .select-css:focus { border-color: #aaa;
+ box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+ box-shadow: 0 0 0 3px -moz-mac-focusring;
+color: #222;
+
+ .select-css option { font-weight:normal;  }
+ *[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
+background-position: center .7em top 50%,  0;
+padding: .6em .8em .5em 1.4em;
+.form-horizontal .text{
+ float: left;
+ margin-left: 7px;
+ line-height: 20px;
+ padding-top: 5px;
+ text-transform: capitalize;
+}
+.text-flask{
+font-size: 40px;
+font-family: Arial;
+color: #444;
+text-transform: capitalize;
+
+}
+.stt{
+width:300px;
+height:300px;
+}
+</style>
+
+<form class="form-horizontal" method="post" enctype="multipart/form-data">
+
+ <span class="heading2"> Редактирование нового объявления</span>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+<div class="text-flask">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+</div>
+  {% endif %}
+{% endwith %}
+<div class="row marketing">
+          <div class="col-lg-6">
+       <div class="form-group">
+          <p > Название объявления</p>
+                <input class="form-control" type="text" name="name" id="inputname" value="{{ post.name }}" >
+       </div>
+              <div class="form-group" class="select-css">
+<div class=" cat">
+          <p > Категория</p>
+               <select size="1"  id="select1" name="category" class="select-css" >
+                   <option disabled  >Выберите категорию</option>
+                   <optgroup label="Мебель " >
+            <option value="мягкая мебель">мягкая мебель</option>
+            <option value="столы/стулья">столы/стулья</option>
+            <option value="полки">полки</option>
+            <option value="шкафы">шкафы</option>
+            <option value="прочая Мебель">прочее</option>
+                   </optgroup>
+                   <optgroup label="Техника " >
+            <option value="бытовая техника">бытовая техника</option>
+            <option value="компьютеры">компьютеры</option>
+            <option value="телефоны">телефоны</option>
+            <option value="аудио-видео">аудио-видео</option>
+            <option value="прочая техника">прочее</option>
+                   </optgroup>
+                   <optgroup label="Личные вещи" >
+            <option value="одежда">одежда</option>
+            <option value="обувь">обувь</option>
+            <option value="игрушки">игрушки</option>
+            <option value="книги">книги</option>
+            <option value="прочие Личные вещи">прочее</option>
+                   </optgroup>
+            <option value="Продукты">Продукты</option>
+
+            <option value="Канцелярия ">Канцелярия </option>
+            <option value="Прочее ">Прочее</option>
+               </select>
+        </div></div>
+        <div class="form-group">
+
+        <p >Описание</p>
+             <input class="form-control" type="text" name="description" value="{{ post.description }}" >
+        </div>
+        <div class="form-group">
+
+        <p > Цена</p>
+                <input class="form-control" type="text" name="cost" value="{{ post.cost }}" >
+        </div>
+        <div class="form-group">
+            <link rel="stylesheet" href="https://snipp.ru/cdn/bootstrap/4.3/bootstrap.min.css">
+            <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+ $(function() {
+$("div.hostel select").val("{{post.hostel}}");
+});
+$(function() {
+$("div.cat select").val("{{post.category}}");
+});
+
+</script><div class="hostel">
+       <p >Общежитие</p>
+               <select size="1"  id="hostel" name="hostel" class="select-css" required>
+            <option disabled>Выберите общежитие</option>
+                   <option value="Дальневосточное">Дальневосточное</option>
+            <option  value="Рыбацкое">Рыбацкое</option>
+            <option value="Васильостровское">Васильостровское</option>
+            <option value="Лесное">Лесное</option>
+               </select></div>
+        </div>
+         <div class="form-group">
+
+          <p >  URL на реалльную стоимость </p>
+
+            <input   pattern="https?://.+" class="form-control" type="text" name="urlon" value="{{ post.urlon }}">
+
+
+         </div>
+
+          </div>
+           <div class="col-lg-6">
+                      <div class="form-group">
+<div class="row">
+                          <div class="col">
+            <img  style="width:200px;height:200px position:center" src="{{ url_for('static', filename ='img/'+post.img_0)  }}" alt="">
+          </div>
+                          <div class="col" >
+            <img  style="width:200px;height:200px text-align:center" src="{{ url_for('static', filename ='img/'+post.img_1)  }}" alt="">
+          </div>
+                          <div class="col">
+            <img style="width:200px;height:200px text-align:center" src="{{ url_for('static', filename ='img/'+post.img_2)  }}" alt="">
+          </div>
+                          <div class="col">
+            <img style="width:200px;height:200px text-align:center" src="{{ url_for('static', filename ='img/'+post.img_3)  }}" alt="">
+          </div>
+    </div>
+               <p >Выберите главное фото</p>
+
+                <input   type="file" name="photo0" id="field__file-0" class="field field__file">
+      <label class="field__file-wrapper" for="field__file-0">
+
+         <div class="field__file-fake">Файл не выбран</div>
+     <div class="field__file-button">Выбрать</div>
+   </label>
+
+                              <p>Также можете прикрепить  дополнительные фото</p>
+               <input type="file" name="photo1" id="field__file-1" class="field field__file" >
+   </label>
+
+        <label class="field__file-wrapper" for="field__file-1">
+
+         <div class="field__file-fake">Файл  не выбран</div>
+     <div class="field__file-button">Выбрать</div>
+   </label>
+
+               <input  type="file" name="photo2" id="field__file-2" class="field field__file" >
+
+   <label class="field__file-wrapper" for="field__file-2">
+
+         <div class="field__file-fake">Файл  не выбран</div>
+     <div class="field__file-button">Выбрать</div>
+   </label>
+
+               <input  type="file" name="photo3" id="field__file-3" class="field field__file" >
+
+    <label class="field__file-wrapper" for="field__file-3">
+
+         <div class="field__file-fake">Файл  не выбран</div>
+     <div class="field__file-button">Выбрать</div>
+   </label>
+
+          </div>
+           </div>
+        </div>
+            <a href="/user{{current_user.id}}/lic/actualpost"> </a>
+            <input type="submit"  class="btn btn-default" value="Edit">
+         <!--<a type="submit" href="{{url_for('main')}}" class="btn btn-default">Авторизация</a>
+         <a href="{{url_for('main')}}"> </a>
+         <input type="submit" class="btn btn-default" value="Upload">-->
+     </form>
+
+</div>
+
+<script>
+ let fields = document.querySelectorAll('.field__file');
+    Array.prototype.forEach.call(fields, function (input) {
+      let label = input.nextElementSibling,
+        labelVal = label.querySelector('.field__file-fake').innerText;
+
+      input.addEventListener('change', function (e) {
+        let countFiles = '';
+        if (this.files && this.files.length >= 1)
+          countFiles = this.files.length;
+
+        if (countFiles)
+          label.querySelector('.field__file-fake').innerText = 'Фото успешно добавлено'
+
+        else
+          label.querySelector('.field__file-fake').innerText = labelVal;
+      });
+    });
+
+ </script>
+{%endblock%}
+

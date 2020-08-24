@@ -1,0 +1,163 @@
+{%extends 'base.html'%}
+    {%block title%}
+Поддержка
+{%endblock%}
+{%block body%}
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <h4 style="text-align:center">Здравствуй дорогой друг, спасибо что ты используешь данное веб приложение! </h4>
+    <h4 style="text-align:center ">На этой странице мы создали небольшой перечень вопросов, которые могут тебе помочь в использавании приложения</h4>
+
+<div class="accordion" id="accordionExample" style="padding:15px">
+    <ul class=" border">
+    <li class="r"><div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
+        <h5>Технические вопросы</h5>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+          <ul class="list-group list-group-flush" >
+          <li class= "list-group-item"> Eсли у тебя что-то не работает, а конкретно error404, либо же у тебя имеются какие-либо технические проблемы с сайтом  то пиши
+              <a href="https://vk.com/id427942418">сюда</a></li>
+        <li class= "list-group-item">Если у тебя есть предложения по доработке сайта, то тоже пиши <a href="https://vk.com/id427942418">сюда</a></li>
+</ul>
+      </div>
+    </div>
+  </div></li>
+    <li class="r"><div class="card">
+    <div class="card-header" id="headingTwo">
+        <button class="btn btn-link collapsed" style=" max-weight100%: text-align:center" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         <h5> Как подать объявление?</h5>
+        </button>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+ <ul class="list-group list-group-flush" >
+     <li class= "list-group-item">Войдите в свой профиль</li>
+     <li class= "list-group-item">Заполни все нужные поля(Название,Описание, Цена, Главное фото,Общежитие, Категория )</li>
+     <li class= "list-group-item">Нажми на кнопку создать объявление</li>
+     </li>
+ </ul>
+      </div>
+    </div>
+  </div></li>
+    <li class="r"><div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <h5>Как отредактировать объявление?</h5>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul class="list-group list-group-flush" >
+            <li class= "list-group-item">Открыть личный кабинет пользователя</li>
+            <li class= "list-group-item">Выбрать нужное объявление </li>
+            <li class= "list-group-item">Нажать на кнопку редактировать </li>
+            <li class= "list-group-item">изменить нужные параментры объявления и нажать сохранить </li>
+        </ul>
+      </div>
+    </div>
+  </div></li>
+    <li class="r"><div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+          <h5>  Как удалить объявление?</h5>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul class="list-group list-group-flush" >
+            <li class= "list-group-item">Открыть личный кабинет пользователя</li>
+            <li class= "list-group-item">Открыть Актуальные объявления </li>
+            <li class= "list-group-item">Выбрать нужное объявление </li>
+            <li class= "list-group-item">Нажать на кнопку удалить </li>
+        </ul>
+      </div>
+    </div>
+  </div></li>
+    <li class="r"><div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+        <h5>Как восстановить объявление?</h5>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul class="list-group list-group-flush" >
+            <li class= "list-group-item">Открыть личный кабинет пользователя</li>
+            <li class= "list-group-item">Открыть завершенные объявления </li>
+            <li class= "list-group-item">Выбрать нужное объявление </li>
+            <li class= "list-group-item">Нажать на кнопку восстановить </li>
+        </ul>
+      </div>
+    </div>
+  </div></li>
+    <li class="r"><div class="card">
+    <div class="card-header" id="headingSix">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+        <h5>Как отредактировать личные данные?</h5>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul  class="list-group list-group-flush"  >
+                <li class="list-group-item">Открыть личный кабинет пользователя</li>
+                <li class="list-group-item">Нажать на кнопку изменить личные данные </li>
+                <li class="list-group-item   ">Изменить нужные параментры объявления и нажать сохранить </li>
+            </ul>
+      </div>
+    </div>
+  </div></li>
+</ul>
+
+</div>
+<style>
+    .border {
+list-style: none;
+padding: 0;
+}
+.r {
+font-family: "Trebuchet MS", "Lucida Sans";
+padding: 7px 20px;
+margin-bottom: 10px;
+border-radius: 5px;
+border-left: 10px solid #f05d22;
+box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+     -2px -2px 5px 0 rgba(0,0,0,.1),
+    2px 2px 5px 0 rgba(0,0,0,.1),
+    -2px 2px 5px 0 rgba(0,0,0,.1);
+font-size: 20px;
+letter-spacing: 2px;
+transition: 0.3s all linear;
+}
+.r:nth-child(2){border-color: #8bc63e;}
+.r:nth-child(3){border-color: #fcba30;}
+.r:nth-child(4){border-color: #1ccfc9;}
+.r:nth-child(5){border-color: #493224;}
+.border li:hover {border-left: 10px solid transparent;}
+.border li:nth-child(1):hover {border-right: 10px solid #f05d22;}
+.border li:nth-child(2):hover {border-right: 10px solid #8bc63e;}
+.border li:nth-child(3):hover {border-right: 10px solid #fcba30;}
+.border li:nth-child(4):hover {border-right: 10px solid #1ccfc9;}
+.border li:nth-child(5):hover {border-right: 10px solid #493224;}
+.list-group-item{
+font-size:14px}
+</style>
+
+{%endblock%}

@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+    {%block title%}
+create new post
+{%endblock%}
+{%block body%}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<form  method="post" enctype="multipart/form-data"action="{{url_for('chat')}}"  >
+    <table>
+    <td><input type="text" name="msg"></td>
+    <td><a href="{{url_for('chat')}}"> </a></td>
+    <td><input type="submit" value="publicate"></td>
+</table>
+</form>
+
+{%endblock%}
