@@ -27,7 +27,7 @@ class User(db.Model, UserMixin):
     id=db.Column( db.Integer,primary_key=True)
     mail=db.Column(db.String(200), unique=True,nullable=False)
     name=db.Column(db.String(200), nullable=False)
-    id_vk=db.Column(db.String(200), unique=True,nullable=False)
+    id_vk=db.Column(db.String(200), unique=False,nullable=False)
     hostel=db.Column(db.String(100), nullable=False)
     password=db.Column(db.String(200), nullable=False)
 

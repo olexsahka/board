@@ -40,7 +40,7 @@ def delete_post(id):
     try:
         ed_post.active = False
         db.session.commit()
-        return redirect('/lic/actualpost')
+        return redirect(f'/user{current_user.id}/lic/actualpost')
     except:
         return print(f"у вас серьезные траблы {current_user.name}")
 
@@ -50,7 +50,7 @@ def restore_post(id):
     try:
         ed_post.active = True
         db.session.commit()
-        return redirect('/lic/notactualpost')
+        return redirect(f'/user{current_user.id}/lic/notactualpost')
     except:
         return print(f"у вас серьезные траблы {current_user.name}")
 

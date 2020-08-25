@@ -14,7 +14,13 @@
   <nav class="my-2 my-md-0 mr-md-3">
 
     <a class="p-2 text-dark" href="{{url_for('hello_world')}}">Главная</a>
+      {%if current_user.is_authenticated==True %}
     <a class="p-2 text-dark" href="/user{{current_user.id}}/lic">Личный кабинет</a>
+      {%else%}
+    <a class="p-2 text-dark" href="{{url_for('chat')}}">Личный кабинет</a>
+      {%endif%}
+
+
     <a class="p-2 text-dark" href="{{url_for('helper')}}">Поддержка</a>
       <a class="p-2 text-dark" href="{{url_for('reg_post')}}">Создать новое объявление</a>
     {%if current_user.is_authenticated==True %}
